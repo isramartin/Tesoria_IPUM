@@ -1,0 +1,142 @@
+/* Fondo oscuro cuando el menú está abierto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 9;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 100vh;
+    background: #0d1117;
+    padding: 20px;
+    color: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 10;
+
+    &.abierto {
+        transform: translateX(0);
+    }
+}
+
+/* Botón hamburguesa */
+.hamburger-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.hamburger-btn img.icon {
+  width: 28px; 
+  height: 28px; 
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Botón cerrar (X) dentro del menú */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .icon {
+        width: 22px;
+        filter: invert(1);
+    }
+}
+
+/* Títulos */
+.title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #9ba1a6;
+    margin-bottom: 20px;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #cfcfcf;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #232a33;
+        color: white;
+    }
+
+    .icon {
+        width: 20px;
+        filter: invert(1);
+    }
+}
+
+.active {
+    background: #1f2937;
+    color: #fff;
+
+    .icon {
+        filter: invert(1);
+    }
+}
+
+/* Título de secciones */
+.departamentos-title {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 15px 0 5px 5px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE: en escritorio siempre visible */
+@media (min-width: 900px) {
+    .hamburger-btn {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0);
+        position: static;
+        height: 100%;
+    }
+
+    .close-btn {
+        display: none;
+    }
+
+    .overlay {
+        display: none;
+    }
+}

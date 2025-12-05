@@ -1,0 +1,25 @@
+<div class="layout">
+
+  <!-- SIDEBAR FIJO A LA IZQUIERDA -->
+  <aside class="sidebar" [class.closed]="sidebarClosed">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <div class="right-panel">
+
+    <!-- TOPBAR FIJO A LA DERECHA DEL SIDEBAR -->
+    <header class="topbar">
+      <button class="hamburger" (click)="toggleSidebar()">
+        <img src="assets/icons/bars-3.svg" alt="menu" />
+      </button>
+      <h1 class="app-title">Mi App</h1>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+</div>

@@ -1,0 +1,50 @@
+<!-- Fondo oscuro cuando el menú está abierto -->
+<div class="overlay" *ngIf="menuAbierto" (click)="toggleMenu()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" [class.abierto]="menuAbierto">
+
+
+  <h2 class="title">Tesorería Iglesia</h2>
+  <p class="subtitle">Sistema de Gestión Ministerial</p>
+
+  <nav>
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <img src="assets/icons/home.svg" class="icon" /> Dashboard
+    </a>
+
+    <a routerLink="/reportes" routerLinkActive="active">
+      <img src="assets/icons/chart-bar.svg" class="icon" /> Reportes e Informes
+    </a>
+
+    <a routerLink="/ingresos" routerLinkActive="active">
+      <img src="assets/icons/banknotes.svg" class="icon" /> Ingresos
+    </a>
+
+    <a routerLink="/gastos" routerLinkActive="active">
+      <img src="assets/icons/arrow-up-tray.svg" class="icon" /> Gastos
+    </a>
+
+    <a routerLink="/config" routerLinkActive="active">
+      <img src="assets/icons/cog-6-tooth.svg" class="icon" /> Configuración
+    </a>
+
+    <span class="departamentos-title">DEPARTAMENTOS</span>
+
+    <a routerLink="/jovenes" routerLinkActive="active">
+      <img src="assets/icons/user-group.svg" class="icon" /> Jóvenes
+    </a>
+
+    <a routerLink="/damas" routerLinkActive="active">
+      <img src="assets/icons/heart.svg" class="icon" /> Damas
+    </a>
+
+    <a routerLink="/caballeros" routerLinkActive="active">
+      <img src="assets/icons/shield-check.svg" class="icon" /> Caballeros
+    </a>
+
+    <a routerLink="/ninos" routerLinkActive="active">
+      <img src="assets/icons/face-smile.svg" class="icon" /> Niños
+    </a>
+  </nav>
+</div>

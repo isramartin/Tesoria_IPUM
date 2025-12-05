@@ -1,0 +1,103 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* SIDEBAR FIJO COMPLETO A LA IZQUIERDA */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: #f8f9fa;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.25s ease-in-out;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* PANEL DERECHO */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 230px;
+  height: 100%;
+  transition: margin-left 0.25s ease-in-out;
+}
+
+.sidebar.closed + .right-panel {
+  margin-left: 0;
+}
+
+/* TOPBAR FIJO */
+.topbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  position: fixed;
+  top: 0;
+  left: 230px;
+  right: 0;
+  transition: left 0.25s ease-in-out;
+}
+
+.sidebar.closed ~ .right-panel .topbar {
+  left: 0;
+}
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.hamburger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+.hamburger:active {
+  transform: scale(0.92);
+}
+
+.hamburger img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(0.3);
+  transition: filter 0.25s ease;
+}
+
+.hamburger:hover img {
+  filter: brightness(0.1);
+}
+
+
+.app-title {
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* CONTENIDO */
+.content {
+  margin-top: 60px;
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+}
