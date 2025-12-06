@@ -4,8 +4,32 @@
 <!-- SIDEBAR -->
 <div class="sidebar" [class.abierto]="menuAbierto">
 
+<!-- PERFIL DEL USUARIO (arriba del sidebar) -->
+<div class="user-profile" (click)="toggleUserMenu()">
+  <img [src]="usuario?.foto || 'assets/img/default-user.png'" class="user-avatar" />
 
-  <h2 class="title">Tesorería Iglesia</h2>
+  <div class="user-info">
+    <h3>{{ usuario?.nombre || 'Usuario' }}</h3>
+    <p>{{ usuario?.rol || 'Rol no asignado' }}</p>
+  </div>
+
+  <img src="assets/icons/chevron-down.svg" class="arrow-icon" 
+       [class.abierto]="userMenuAbierto" />
+</div>
+
+<!-- SUBMENÚ -->
+<div class="user-submenu" *ngIf="userMenuAbierto">
+  <button (click)="verPerfil()">
+    <img src="assets/icons/user.svg" class="sub-icon"> Ver perfil
+  </button>
+
+  <button (click)="cerrarSesion()">
+    <img src="assets/icons/arrow-right-on-rectangle.svg" class="sub-icon"> Cerrar sesión
+  </button>
+</div>
+
+
+  <!-- TITULOS DEL SISTEMA -->
   <p class="subtitle">Sistema de Gestión Ministerial</p>
 
   <nav>

@@ -30,23 +30,22 @@
 
 /* Botón hamburguesa */
 .hamburger-btn {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 10px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  z-index: 9999;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 9999;
 }
 
 .hamburger-btn img.icon {
-  width: 28px; 
-  height: 28px; 
-  object-fit: contain;
-  display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
-
 
 /* Botón cerrar (X) dentro del menú */
 .close-btn {
@@ -138,5 +137,131 @@ a {
 
     .overlay {
         display: none;
+    }
+}
+
+/* PERFIL DEL USUARIO */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* ======= HEADER SUPERIOR ======= */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 4px;
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Flechita */
+.arrow-icon {
+    width: 18px;
+    margin-left: auto;
+    transition: transform 0.2s;
+    opacity: 0.7;
+}
+
+.arrow-icon.abierto {
+    transform: rotate(180deg);
+}
+
+/* SUBMENÚ */
+.user-submenu {
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 15px 10px 15px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.2s ease;
+}
+
+.user-submenu button {
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 10px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-submenu button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.sub-icon {
+    width: 18px;
+    opacity: 0.8;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
