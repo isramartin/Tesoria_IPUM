@@ -6,19 +6,73 @@
 }
 
 /* SIDEBAR FIJO COMPLETO A LA IZQUIERDA */
+// .sidebar {
+//   width: 230px;
+//   height: 100vh;
+//   background: #f8f9fa;
+//   border-right: 1px solid #ddd;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   transition: transform 0.25s ease-in-out;
+// }
+
 .sidebar {
-  width: 230px;
-  height: 100vh;
-  background: #f8f9fa;
-  border-right: 1px solid #ddd;
-  position: fixed;
   top: 0;
   left: 0;
-  transition: transform 0.25s ease-in-out;
+  width: 230px;
+  background: #111827;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  transition:
+    width 0.25s ease,
+    padding 0.25s ease;
+  border-right: 1px solid #ddd;
+  position: fixed;
 }
 
 .sidebar.closed {
   transform: translateX(-100%);
+}
+
+/* SIDEBAR MINI — SOLO ÍCONOS */
+.sidebar.mini {
+  width: 70px; /* 25% aprox de tu sidebar */
+  padding: 20px 8px;
+}
+
+/* Cuando está mini, oculta el texto */
+.sidebar.mini nav a span,
+.sidebar.mini .user-info,
+.sidebar.mini .subtitle,
+.sidebar.mini .departamentos-title {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  transition:
+    opacity 0.2s ease,
+    width 0.2s ease;
+}
+
+/* ÍCONOS centrados en modo mini */
+.sidebar.mini nav a {
+  justify-content: center;
+}
+
+.sidebar.mini nav a img.icon {
+  margin-right: 0;
+}
+
+/* Mantener avatar redondo pero más pequeño */
+.sidebar.mini .user-avatar {
+  width: 40px;
+  margin: 0 auto;
+}
+
+/* Flecha oculta en mini */
+.sidebar.mini .arrow-icon {
+  display: none;
 }
 
 /* PANEL DERECHO */
@@ -50,6 +104,14 @@
   transition: left 0.25s ease-in-out;
 }
 
+.topbar.mini {
+  left: 90px;
+}
+
+.right-panel.mini {
+  margin-left: 95px;
+}
+
 .sidebar.closed ~ .right-panel .topbar {
   left: 0;
 }
@@ -62,7 +124,9 @@
   justify-content: center;
   cursor: pointer;
   border-radius: 8px;
-  transition: background-color 0.25s ease, transform 0.2s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
 }
 
 .hamburger:hover {
@@ -86,7 +150,6 @@
 .hamburger:hover img {
   filter: brightness(0.1);
 }
-
 
 .app-title {
   margin-left: 15px;

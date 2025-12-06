@@ -227,14 +227,11 @@ a {
 .user-submenu {
     top: 70px; /* se coloca justo debajo del perfil */
     left: 0;
-    width: 90%;
+    width: 90%; 
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.12);
     padding: 10px;
-    transition:
-        max-height 0.35s ease,
-        opacity 0.25s ease,
-        padding 0.25s ease;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
 }
 
 .user-submenu button {

@@ -1,14 +1,12 @@
 <div class="layout">
-
   <!-- SIDEBAR FIJO A LA IZQUIERDA -->
-  <aside class="sidebar" [class.closed]="sidebarClosed">
+  <aside class="sidebar" [class.closed]="sidebarClosed" [class.mini]="sidebarMini">
     <app-sidebar></app-sidebar>
   </aside>
 
-  <div class="right-panel">
-
+  <div class="right-panel" [class.mini]="sidebarMini" [class.closed]="sidebarClosed">
     <!-- TOPBAR FIJO A LA DERECHA DEL SIDEBAR -->
-    <header class="topbar">
+    <header class="topbar" [class.mini]="sidebarMini" [class.closed]="sidebarClosed">
       <button class="hamburger" (click)="toggleSidebar()">
         <img src="assets/icons/bars-3.svg" alt="menu" />
       </button>
@@ -19,7 +17,5 @@
     <main class="content">
       <router-outlet></router-outlet>
     </main>
-
   </div>
-
 </div>

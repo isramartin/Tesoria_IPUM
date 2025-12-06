@@ -3,74 +3,79 @@
 
 <!-- SIDEBAR -->
 <div class="sidebar" [class.abierto]="menuAbierto">
+  <!-- PERFIL DEL USUARIO (arriba del sidebar) -->
+  <div class="user-profile" (click)="toggleUserMenu()">
+    <img [src]="usuario?.foto || 'assets/img/default-user.png'" class="user-avatar" />
 
-<!-- PERFIL DEL USUARIO (arriba del sidebar) -->
-<div class="user-profile" (click)="toggleUserMenu()">
-  <img [src]="usuario?.foto || 'assets/img/default-user.png'" class="user-avatar" />
+    <div class="user-info">
+      <h3>{{ usuario?.nombre || 'Usuario' }}</h3>
+      <p>{{ usuario?.rol || 'Rol no asignado' }}</p>
+    </div>
 
-  <div class="user-info">
-    <h3>{{ usuario?.nombre || 'Usuario' }}</h3>
-    <p>{{ usuario?.rol || 'Rol no asignado' }}</p>
+    <img src="assets/icons/chevron-down.svg" class="arrow-icon" [class.abierto]="userMenuAbierto" />
   </div>
 
-  <img src="assets/icons/chevron-down.svg"
-       class="arrow-icon"
-       [class.abierto]="userMenuAbierto" />
-</div>
+  <!-- SUBMENÚ -->
+  <div class="user-submenu" *ngIf="userMenuAbierto">
+    <button (click)="verPerfil()">
+      <img src="assets/icons/user.svg" class="sub-icon" /> Ver perfil
+    </button>
 
-
-<!-- SUBMENÚ -->
-<div class="user-submenu" *ngIf="userMenuAbierto">
-  <button (click)="verPerfil()">
-    <img src="assets/icons/user.svg" class="sub-icon"> Ver perfil
-  </button>
-
-  <button (click)="cerrarSesion()">
-    <img src="assets/icons/arrow-right-on-rectangle.svg" class="sub-icon"> Cerrar sesión
-  </button>
-</div>
-
+    <button (click)="cerrarSesion()">
+      <img src="assets/icons/arrow-right-on-rectangle.svg" class="sub-icon" /> Cerrar sesión
+    </button>
+  </div>
 
   <!-- TITULOS DEL SISTEMA -->
   <p class="subtitle">Sistema de Gestión Ministerial</p>
 
-  <nav>
-    <a routerLink="/dashboard" routerLinkActive="active">
-      <img src="assets/icons/home.svg" class="icon" /> Dashboard
-    </a>
+ <nav>
+  <a routerLink="/dashboard" routerLinkActive="active">
+    <img src="assets/icons/home.svg" class="icon" />
+    <span>Dashboard</span>
+  </a>
 
-    <a routerLink="/reportes" routerLinkActive="active">
-      <img src="assets/icons/chart-bar.svg" class="icon" /> Reportes e Informes
-    </a>
+  <a routerLink="/reportes" routerLinkActive="active">
+    <img src="assets/icons/chart-bar.svg" class="icon" />
+    <span>Reportes e Informes</span>
+  </a>
 
-    <a routerLink="/ingresos" routerLinkActive="active">
-      <img src="assets/icons/banknotes.svg" class="icon" /> Ingresos
-    </a>
+  <a routerLink="/ingresos" routerLinkActive="active">
+    <img src="assets/icons/banknotes.svg" class="icon" />
+    <span>Ingresos</span>
+  </a>
 
-    <a routerLink="/gastos" routerLinkActive="active">
-      <img src="assets/icons/arrow-up-tray.svg" class="icon" /> Gastos
-    </a>
+  <a routerLink="/gastos" routerLinkActive="active">
+    <img src="assets/icons/arrow-up-tray.svg" class="icon" />
+    <span>Gastos</span>
+  </a>
 
-    <a routerLink="/config" routerLinkActive="active">
-      <img src="assets/icons/cog-6-tooth.svg" class="icon" /> Configuración
-    </a>
+  <a routerLink="/config" routerLinkActive="active">
+    <img src="assets/icons/cog-6-tooth.svg" class="icon" />
+    <span>Configuración</span>
+  </a>
 
-    <span class="departamentos-title">DEPARTAMENTOS</span>
+  <span class="departamentos-title">DEPARTAMENTOS</span>
 
-    <a routerLink="/jovenes" routerLinkActive="active">
-      <img src="assets/icons/user-group.svg" class="icon" /> Jóvenes
-    </a>
+  <a routerLink="/jovenes" routerLinkActive="active">
+    <img src="assets/icons/user-group.svg" class="icon" />
+    <span>Jóvenes</span>
+  </a>
 
-    <a routerLink="/damas" routerLinkActive="active">
-      <img src="assets/icons/heart.svg" class="icon" /> Damas
-    </a>
+  <a routerLink="/damas" routerLinkActive="active">
+    <img src="assets/icons/heart.svg" class="icon" />
+    <span>Damas</span>
+  </a>
 
-    <a routerLink="/caballeros" routerLinkActive="active">
-      <img src="assets/icons/shield-check.svg" class="icon" /> Caballeros
-    </a>
+  <a routerLink="/caballeros" routerLinkActive="active">
+    <img src="assets/icons/shield-check.svg" class="icon" />
+    <span>Caballeros</span>
+  </a>
 
-    <a routerLink="/ninos" routerLinkActive="active">
-      <img src="assets/icons/face-smile.svg" class="icon" /> Niños
-    </a>
-  </nav>
+  <a routerLink="/ninos" routerLinkActive="active">
+    <img src="assets/icons/face-smile.svg" class="icon" />
+    <span>Niños</span>
+  </a>
+</nav>
+
 </div>
