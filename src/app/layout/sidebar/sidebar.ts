@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+    standalone: true,
+  imports: [CommonModule],
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.scss'],
 })
 export class Sidebar {
   menuAbierto = false;
-  userMenuAbierto = false;
 
   toggleMenu() {
     this.menuAbierto = !this.menuAbierto;
   }
 
+  userMenuAbierto = false;
+
   toggleUserMenu() {
+    console.log('click detectado');
     this.userMenuAbierto = !this.userMenuAbierto;
   }
 

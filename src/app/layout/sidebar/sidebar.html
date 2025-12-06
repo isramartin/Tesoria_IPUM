@@ -13,9 +13,11 @@
     <p>{{ usuario?.rol || 'Rol no asignado' }}</p>
   </div>
 
-  <img src="assets/icons/chevron-down.svg" class="arrow-icon" 
+  <img src="assets/icons/chevron-down.svg"
+       class="arrow-icon"
        [class.abierto]="userMenuAbierto" />
 </div>
+
 
 <!-- SUBMENÚ -->
 <div class="user-submenu" *ngIf="userMenuAbierto">
