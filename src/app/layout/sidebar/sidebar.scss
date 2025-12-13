@@ -97,7 +97,7 @@ a {
     }
 
     .icon {
-        width: 20px;
+        width: 25px;
         filter: invert(1);
     }
 }
@@ -117,6 +117,42 @@ a {
     color: #6b7280;
     margin: 15px 0 5px 5px;
     letter-spacing: 1px;
+}
+
+:host-context(.sidebar.mini) {
+    nav a {
+        padding: 12px 0;
+    }
+
+    nav a span {
+        opacity: 0;
+        max-width: 0;
+        // overflow: hidden;
+        // white-space: nowrap;
+        pointer-events: none;
+    }
+
+    .icon {
+        width: 25px;
+        margin: 0;
+    }
+
+    .user-info,
+    .subtitle,
+    .departamentos-title,
+    .arrow-icon {
+        opacity: 0;
+        overflow: hidden; 
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        // gap: 12px;
+        padding: 0 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
 }
 
 /* RESPONSIVE: en escritorio siempre visible */
@@ -227,11 +263,14 @@ a {
 .user-submenu {
     top: 70px; /* se coloca justo debajo del perfil */
     left: 0;
-    width: 90%; 
+    width: 90%;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.12);
     padding: 10px;
-    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+    transition:
+        max-height 0.35s ease,
+        opacity 0.25s ease,
+        padding 0.25s ease;
 }
 
 .user-submenu button {

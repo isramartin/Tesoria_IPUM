@@ -49,24 +49,37 @@
 .sidebar.mini .departamentos-title {
   opacity: 0;
   visibility: hidden;
-  width: 0;
-  transition:
-    opacity 0.2s ease,
-    width 0.2s ease;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  // transition:
+  //   opacity 0.2s ease,
+  //   width 0.2s ease;
 }
 
 /* ÍCONOS centrados en modo mini */
 .sidebar.mini nav a {
   justify-content: center;
+  padding: 12px 0;
 }
 
+.sidebar.mini nav a .icon {
+    width: 22px;
+    margin: 0;
+}
+
+
 .sidebar.mini nav a img.icon {
-  margin-right: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+
 }
 
 /* Mantener avatar redondo pero más pequeño */
 .sidebar.mini .user-avatar {
-  width: 40px;
+  width: 50px;
   margin: 0 auto;
 }
 

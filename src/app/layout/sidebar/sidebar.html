@@ -2,7 +2,7 @@
 <div class="overlay" *ngIf="menuAbierto" (click)="toggleMenu()"></div>
 
 <!-- SIDEBAR -->
-<div class="sidebar" [class.abierto]="menuAbierto">
+<div class="sidebar" [class.abierto]="menuAbierto" >
   <!-- PERFIL DEL USUARIO (arriba del sidebar) -->
   <div class="user-profile" (click)="toggleUserMenu()">
     <img [src]="usuario?.foto || 'assets/img/default-user.png'" class="user-avatar" />
