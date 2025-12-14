@@ -121,15 +121,64 @@ a {
 
 :host-context(.sidebar.mini) {
     nav a {
-        padding: 12px 0;
+        position: relative;
+        padding: 18px 5px;
+    }
+
+    nav a::after {
+        content: attr(title);
+        position: absolute;
+        left: 72px;
+        top: 50%;
+        transform: translateY(-50%) scale(0.95);
+
+        background: #111827;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        white-space: nowrap;
+
+        opacity: 0;
+        pointer-events: none;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    nav a:hover::after {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
     }
 
     nav a span {
+        position: absolute;
+        left: 75px; /* sale hacia la derecha del sidebar */
+        top: 50%;
+        transform: translateY(-50%);
+        background: #111827;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        white-space: nowrap;
+        font-size: 14px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
         opacity: 0;
-        max-width: 0;
-        // overflow: hidden;
-        // white-space: nowrap;
+        visibility: hidden;
         pointer-events: none;
+
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    nav a:hover span {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, -50%);
     }
 
     .icon {
@@ -141,18 +190,17 @@ a {
     .subtitle,
     .departamentos-title,
     .arrow-icon {
-        opacity: 0;
-        overflow: hidden; 
+        display: none;
+        overflow: hidden;
     }
 
     .user-profile {
         display: flex;
         align-items: center;
-        // gap: 12px;
-        padding: 0 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 8px;
     }
-
 }
 
 /* RESPONSIVE: en escritorio siempre visible */
