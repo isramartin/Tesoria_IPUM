@@ -1,12 +1,127 @@
-<h1>Sistema de Tesorería de la Iglesia</h1>
-<p class="subtitle">Gestión financiera por departamentos ministeriales</p>
+<div class="dashboard-container">
 
-<h2>Resumen por Departamento</h2>
+  <h1 class="title">Sistema de Tesorería de la Iglesia</h1>
+  <p class="subtitle">Gestión financiera por departamentos ministeriales</p>
 
-<div class="cards">
-  <div class="card">Jóvenes</div>
-  <div class="card">Damas</div>
-  <div class="card">Caballeros</div>
-  <div class="card">Niños</div>
-   <div class="card">Misiones</div>
+  <!-- Resumen por departamento -->
+  <h2 class="section-title">Resumen por Departamento</h2>
+
+  <div class="department-grid">
+
+    <div class="department-card">
+      <span class="dept-name">Jóvenes</span>
+      <span class="dept-amount">$45.680,50</span>
+      <span class="dept-extra">+18.5% • 156 transacciones</span>
+    </div>
+
+    <div class="department-card">
+      <span class="dept-name">Damas</span>
+      <span class="dept-amount">$38.420,75</span>
+      <span class="dept-extra">+12.3% • 134 transacciones</span>
+    </div>
+
+    <div class="department-card">
+      <span class="dept-name">Caballeros</span>
+      <span class="dept-amount">$52.340,00</span>
+      <span class="dept-extra">+9.8% • 112 transacciones</span>
+    </div>
+
+    <div class="department-card">
+      <span class="dept-name">Niños</span>
+      <span class="dept-amount">$28.750,25</span>
+      <span class="dept-extra">+14.2% • 98 transacciones</span>
+    </div>
+
+    <div class="department-card">
+      <span class="dept-name">Misiones</span>
+      <span class="dept-amount">$18.200,00</span>
+      <span class="dept-extra">+10.1% • 67 transacciones</span>
+    </div>
+
+  </div>
+
+  <!-- Informes -->
+  <h2 class="section-title">Informes Mensuales Consolidados</h2>
+
+  <div class="month-tabs">
+    <button class="tab active">Enero 2024</button>
+    <button class="tab">Febrero 2024</button>
+    <button class="tab">Marzo 2024</button>
+
+    <div class="actions">
+      <button class="action-btn"><i class="fa-regular fa-file-pdf"></i> PDF</button>
+      <button class="action-btn"><i class="fa-regular fa-file-excel"></i> Excel</button>
+    </div>
+  </div>
+
+  <div class="report-grid">
+
+    <div class="report-card talentos">
+      <div class="icon">🎁</div>
+      <div class="text">
+        <span class="report-title">Talentos</span>
+        <span class="report-value">$48.000</span>
+      </div>
+    </div>
+
+    <div class="report-card ofrendas">
+      <div class="icon">💚</div>
+      <div class="text">
+        <span class="report-title">Ofrendas</span>
+        <span class="report-value">$25.600</span>
+      </div>
+    </div>
+
+    <div class="report-card externos">
+      <div class="icon">💲</div>
+      <div class="text">
+        <span class="report-title">Ingresos Externos</span>
+        <span class="report-value">$15.800</span>
+      </div>
+    </div>
+
+    <div class="report-card total">
+      <div class="icon">📘</div>
+      <div class="text">
+        <span class="report-title">Total Ingresos</span>
+        <span class="report-value">$83.400</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- === GRÁFICA + RESUMEN === -->
+  <div class="analysis-grid">
+
+    <div class="chart-card">
+      <h3>Desglose de Ingresos - Enero 2024</h3>
+      <canvas id="incomeChart"></canvas>
+    </div>
+
+    <div class="summary-card">
+      <h3>Resumen Financiero</h3>
+
+      <div class="summary-row">
+        <span>Total Ingresos</span>
+        <span class="income">$83.400</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Total Gastos</span>
+        <span class="expense">$53.800</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Balance Neto</span>
+        <span class="net">$29.600</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Transacciones</span>
+        <span class="count">40</span>
+      </div>
+    </div>
+
+  </div>
+
 </div>
