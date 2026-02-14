@@ -92,7 +92,7 @@ a {
     transition: background 0.2s;
 
     &:hover {
-        background: #232a33;
+        background: #022961;
         color: white;
     }
 
@@ -103,7 +103,7 @@ a {
 }
 
 .active {
-    background: #1f2937;
+    background: #022961;
     color: #fff;
 
     .icon {
@@ -337,6 +337,7 @@ a {
 
 .user-submenu button:hover {
     background: rgba(255, 255, 255, 0.18);
+    width: 100%;
 }
 
 .sub-icon {
