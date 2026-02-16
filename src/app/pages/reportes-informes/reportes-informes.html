@@ -1,1 +1,105 @@
-<p>reportes-informes works!</p>
+<div class="reportes-container">
+
+  <div class="header">
+    <div>
+      <h1>Informes y Estadísticas</h1>
+      <p>Reportes profesionales consolidados de todos los departamentos</p>
+    </div>
+    <div class="buttons">
+      <button class="btn pdf"><i class="bi bi-file-earmark-pdf"></i> Exportar PDF</button>
+      <button class="btn excel"><i class="bi bi-file-earmark-excel"></i> Excel</button>
+    </div>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filtros-card">
+    <div class="filtro-item">
+      <i class="bi bi-calendar-event"></i>
+      <label>Filtrar por fecha:</label>
+    </div>
+
+    <div class="select-group">
+      <label>Mes</label>
+      <select [(ngModel)]="mesSeleccionado">
+        <option *ngFor="let mes of meses">{{ mes }}</option>
+      </select>
+    </div>
+
+    <div class="select-group">
+      <label>Año</label>
+      <select [(ngModel)]="anioSeleccionado">
+        <option *ngFor="let year of anios">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- TARJETAS RESUMEN -->
+  <div class="cards-resumen">
+    <div class="card ingreso">
+      <h3>Total Ingresos</h3>
+      <p class="monto">${{ totalIngresos }}</p>
+      <span>Último trimestre</span>
+    </div>
+
+    <div class="card gasto">
+      <h3>Total Gastos</h3>
+      <p class="monto">${{ totalGastos }}</p>
+      <span>Último trimestre</span>
+    </div>
+
+    <div class="card balance">
+      <h3>Balance General</h3>
+      <p class="monto">${{ balanceGeneral }}</p>
+      <span>Balance actual</span>
+    </div>
+
+    <div class="card transacciones">
+      <h3>Transacciones</h3>
+      <p class="monto">{{ transacciones }}</p>
+      <span>Último trimestre</span>
+    </div>
+  </div>
+
+  <!-- GRAFICO INGRESOS VS GASTOS -->
+  <div class="card-grafico">
+    <h2>Ingresos vs Gastos Mensuales</h2>
+    <canvas #graficoIngresos></canvas>
+  </div>
+
+  <!-- DISTRIBUCIÓN Y BALANCES -->
+  <div class="grid-2">
+    <div class="card-grafico">
+      <h2>Distribución de Ingresos</h2>
+      <canvas #graficoPie class="pie-canvas"></canvas>
+
+      <ul class="lista-ingresos">
+        <li>Talentos <strong>${{ ingresosTalentos }}</strong></li>
+        <li>Ofrendas <strong>${{ ingresosOfrendas }}</strong></li>
+        <li>Ingresos Externos <strong>${{ ingresosExternos }}</strong></li>
+      </ul>
+    </div>
+
+    <div class="card-grafico">
+      <h2>Balance por Departamento</h2>
+      <canvas #graficoDeptos></canvas>
+    </div>
+  </div>
+
+  <!-- EVOLUCIÓN POR DEPARTAMENTO -->
+  <div class="card-grafico">
+    <h2>Evolución Mensual por Departamento</h2>
+    <canvas #graficoEvolucion></canvas>
+  </div>
+
+  <!-- TARJETAS POR DEPARTAMENTO -->
+  <div class="deptos-cards">
+    <div class="depto-card" *ngFor="let d of departamentos">
+      <div class="porcentaje">+{{ d.crecimiento }}%</div>
+      <h3>{{ d.nombre }}</h3>
+      <p><strong>Balance Actual</strong> ${{ d.balance }}</p>
+      <p><strong>Transacciones</strong> {{ d.transacciones }}</p>
+      <p><strong>Estado</strong> {{ d.estado }}</p>
+    </div>
+  </div>
+
+</div>
