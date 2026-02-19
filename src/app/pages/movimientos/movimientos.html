@@ -1,0 +1,127 @@
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>Movimientos Financieros</h1>
+      <p class="subtitulo">Control de ingresos y gastos de la iglesia</p>
+    </div>
+
+    <button class="btn-primary">+ Nueva Transacción</button>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filtros-card">
+    <div class="filtro-item">
+      <label>Filtrar por fecha</label>
+      <input type="date" />
+    </div>
+
+    <div class="filtro-item">
+      <label>Mes</label>
+      <select>
+        <option>Enero</option>
+        <option>Febrero</option>
+        <option>Marzo</option>
+      </select>
+    </div>
+
+    <div class="filtro-item">
+      <label>Año</label>
+      <select>
+        <option>2026</option>
+        <option>2025</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- TABS INGRESOS / GASTOS -->
+  <div class="tabs">
+    <button [class.active]="modo === 'ingresos'" (click)="modo = 'ingresos'">Ingresos</button>
+    <button [class.active]="modo === 'gastos'" (click)="modo = 'gastos'">Gastos</button>
+  </div>
+
+  <!-- SUBTABS MESES -->
+  <div class="mes-tabs">
+    <button
+      *ngFor="let mes of meses"
+      [class.active]="mesSeleccionado === mes"
+      (click)="mesSeleccionado = mes"
+    >
+      {{ mes }}
+    </button>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-card" [ngClass]="modo">
+    <div class="icono circulo">
+      <span>{{ modo === 'ingresos' ? '↗' : '↘' }}</span>
+    </div>
+
+    <div>
+      <p class="label-total">Total de {{ modo | titlecase }} – {{ mesSeleccionado }}</p>
+      <h2 class="monto-total">{{ totalSeleccionado | currency: 'USD' }}</h2>
+    </div>
+  </div>
+
+ 
+<!-- CATEGORÍAS SOLO PARA GASTOS -->
+<div class="contenedor-card" *ngIf="modo === 'gastos'" [ngClass]="modo">
+  <h3>Gastos por Categoría</h3>
+
+  <div class="item-line" *ngFor="let item of listaCategorias">
+    <div class="line-header">
+      <span class="categoria">{{ item.nombre }}</span>
+      <strong class="valor">{{ item.monto | currency: 'USD' }}</strong>
+    </div>
+
+    <div class="barra">
+      <div class="progreso" [style.width.%]="item.porcentaje"></div>
+    </div>
+
+    <p class="porcentaje">{{ item.porcentaje }}% del total</p>
+  </div>
+</div>
+
+  <!-- DEPARTAMENTOS -->
+  <div class="card-seccion" [ngClass]="modo">
+    <h2>Gastos por Departamento - Enero</h2>
+
+    <div class="departamento" *ngFor="let d of departamentos">
+      <div class="info">
+        <div>
+          <span class="nombre">{{ d.nombre }}</span>
+          <small>{{ d.porcentaje }}% del total</small>
+        </div>
+
+        <span class="monto">{{ d.monto }}</span>
+      </div>
+
+      <div class="barra">
+        <div class="progreso" [style.width.%]="d.porcentaje"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSACCIONES -->
+<div class="contenedor-card mt">
+  <h3>Detalle de Transacciones</h3>
+
+  <div class="transaccion"
+       *ngFor="let t of transaccionesFiltradas"
+       [ngClass]="t.tipo">
+
+    <div class="icono circulo small">
+      <span>{{ t.tipo === 'gasto' ? '↘' : '↗' }}</span>
+    </div>
+
+    <div class="info">
+      <p class="titulo">{{ t.nombre }}</p>
+      <p class="sub">{{ t.categoria }} • {{ t.fecha }}</p>
+    </div>
+
+    <span class="monto">{{ t.monto | currency:'USD' }}</span>
+  </div>
+</div>
+
+</div>

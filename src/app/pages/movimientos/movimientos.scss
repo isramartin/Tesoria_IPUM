@@ -1,0 +1,375 @@
+/* ============================================================
+   ===============   VARIABLES DE COLOR    =====================
+   ============================================================ */
+$color-ingresos: #c9a449; // Amarillo dorado
+$color-gastos: #d9534f; // Rojo
+$gris-borde: #e7ebf3;
+$gris-fondo: #f8f9fc;
+
+/* ============================================================
+   ===============   LAYOUT GENERAL    =========================
+   ============================================================ */
+.wrapper {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-family: "Inter", sans-serif;
+    color: #2c2c2c;
+}
+
+/* ============================================================
+   ==================   HEADER    ==============================
+   ============================================================ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    p {
+        margin: 0;
+        color: #6d6d6d;
+        font-size: 14px;
+    }
+}
+
+.btn-primary {
+    background: #5678ff;
+    padding: 10px 18px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+
+    &:hover {
+        background: #4b68e7;
+    }
+}
+
+/* ============================================================
+   ==================   FILTROS    ============================
+   ============================================================ */
+.filtros-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px #0000000d;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    gap: 4px;
+
+    input,
+    select {
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        background: #f9f9f9;
+    }
+}
+
+/* ============================================================
+   ==================   TABS    ================================
+   ============================================================ */
+.tabs {
+    display: flex;
+    gap: 10px;
+
+    button {
+        flex: 1;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background: #ebeef7;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .active {
+        background: #757171d3;
+        color: white;
+    }
+}
+
+/* ============================================================
+   ==================   TABS MESES    ==========================
+   ============================================================ */
+.mes-tabs {
+    display: flex;
+    gap: 10px;
+
+    button {
+        padding: 6px 15px;
+        border-radius: 8px;
+        border: none;
+        background: #f1f1f1;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .active {
+        background: #5678ff;
+        color: white;
+    }
+}
+
+/* ============================================================
+   ==================   CARD TOTAL (MEJORADA) ==================
+   ============================================================ */
+.total-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    background: $gris-fondo;
+    border-left: 6px solid #ccc;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+
+    .icono {
+        font-size: 28px;
+        opacity: 0.7;
+    }
+
+    &.ingresos {
+        border-left-color: $color-ingresos;
+        color: $color-ingresos;
+
+        .monto {
+            color: $color-ingresos;
+        }
+    }
+
+    &.gastos {
+        border-left-color: $color-gastos;
+        color: $color-gastos;
+
+        .monto {
+            color: $color-gastos;
+        }
+    }
+}
+
+/* ============================================================
+   ==================   BARRAS PROGRESO  =======================
+   ============================================================ */
+.barra {
+    width: 100%;
+    height: 8px;
+    background: #eef0f6;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .progreso {
+        height: 100%;
+        transition: width 0.3s;
+    }
+}
+
+.ingresos .progreso {
+    background: $color-ingresos;
+}
+
+.gastos .progreso {
+    background: $color-gastos;
+}
+
+/* ======================================
+   CATEGORÍAS - PROGRESO DINÁMICO
+====================================== */
+.contenedor-card.gastos .progreso {
+    background: $color-gastos !important;
+}
+
+.contenedor-card.ingresos .progreso {
+    background: $color-ingresos !important;
+}
+
+/* ============================================================
+   ==================   CONTENEDOR GENERAL =====================
+   ============================================================ */
+.contenedor-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #0000000d;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 18px;
+
+    h3 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+    }
+}
+
+/* ============================================================
+   ==================   DEPARTAMENTOS ==========================
+   ============================================================ */
+.card-seccion {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #0000000d;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+
+.departamento {
+    margin-bottom: 20px;
+    padding: 18px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid $gris-borde;
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nombre {
+        font-weight: 600;
+    }
+
+    .monto {
+        font-weight: 700;
+        color: $color-ingresos;
+    }
+
+    .barra .progreso {
+        background: $color-ingresos;
+    }
+}
+
+.gastos {
+    .departamento .monto {
+        color: $color-gastos;
+    }
+
+    .departamento .barra .progreso {
+        background: $color-gastos;
+    }
+}
+
+/* ============================================================
+   ==================   TRANSACCIONES ==========================
+   ============================================================ */
+.transaccion {
+     display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 12px;
+    border: 1px solid #dadada;
+    border-radius: 14px;   // ← borde redondeado
+    margin-bottom: 12px;   // separación entre tarjetas
+    background: #fff;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+        background: #f9f9f9;
+        transform: translateX(3px);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    }
+
+    /* Ícono redondito */
+    .icono {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        flex-shrink: 0;
+
+        /* Colores dinámicos */
+        &.ingreso {
+            background: #c9a449; // amarillo
+        }
+
+        &.gasto {
+            background: #d9534f; // rojo
+        }
+    }
+
+    /* Info: título + subtexto */
+    .info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .titulo {
+            margin: 0;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2b2b2b;
+        }
+
+        .sub {
+            margin: 2px 0 0 0;
+            color: #8a8a8a;
+            font-size: 13px;
+        }
+    }
+
+    /* Monto dinámico */
+    .monto {
+        font-weight: 700;
+        font-size: 15px;
+
+        &.ingreso {
+            color: #c9a449;
+        }
+
+        &.gasto {
+            color: #d9534f;
+        }
+    }
+}
+
+/* ===== COLORES SEGÚN TIPO ===== */
+.transaccion.ingreso {
+    .monto {
+        color: $color-ingresos; // Verde
+    }
+    .icono {
+        background-color: #e8c36477;
+        color: $color-ingresos;
+    }
+}
+
+.transaccion.gasto {
+    .monto {
+        color: $color-gastos; // Rojo
+    }
+    .icono {
+        background-color: #e1666674;
+        color: $color-gastos;
+    }
+}
+
+.mt {
+    margin-top: 20px;
+}
