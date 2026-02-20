@@ -28,6 +28,13 @@ export class Movimientos {
     { nombre: 'Equipamiento', monto: 2900, porcentaje: 4.5 },
   ];
 
+  listaIngresos = [
+  { nombre: 'Talentos',          monto: 42000, icono: '🎁', color: 'amarillo' },
+  { nombre: 'Ofrendas',          monto: 25600, icono: '💙', color: 'azul' },
+  { nombre: 'Ingresos Externos', monto: 15800, icono: '📈', color: 'verde' },
+  { nombre: 'Total Ingresos',    monto: 83400, icono: '💲', color: 'morado' },
+];
+
   transacciones = [
     {
       nombre: 'Alquiler de Sonido - Retiro',

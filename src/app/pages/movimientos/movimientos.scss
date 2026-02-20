@@ -135,139 +135,336 @@ $gris-fondo: #f8f9fc;
 .total-card {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
-    border-radius: 15px;
-    background: $gris-fondo;
-    border-left: 6px solid #ccc;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
-
-    .icono {
-        font-size: 28px;
-        opacity: 0.7;
-    }
-
-    &.ingresos {
-        border-left-color: $color-ingresos;
-        color: $color-ingresos;
-
-        .monto {
-            color: $color-ingresos;
-        }
-    }
+    gap: 18px;
+    padding: 22px 28px;
+    border-radius: 18px;
+    background: linear-gradient(to bottom right, #fff, #fafafa);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
     &.gastos {
-        border-left-color: $color-gastos;
-        color: $color-gastos;
+        background: linear-gradient(135deg, #ffe5e5, #fff4f4);
+        border-color: #ffcccc;
 
-        .monto {
+        .icono {
+            background: #ffd8d8;
+            color: #d93636;
+
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .monto-total {
+            color: #d93636;
+        }
+    }
+}
+
+/* ================= INGRESOS — TARJETAS ================== */
+.ingresos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjeta */
+.ingreso-card {
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+    transition: 0.25s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .titulo {
+        margin: 10px 0 4px 0;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .monto {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        color: #000;
+    }
+}
+
+/* ===========================================
+   COLORES SUAVES PARA *LA TARJETA ENTERA*
+   =========================================== */
+
+.ingreso-card.amarillo {
+    background: #f4eacc;     /* más claro que el icono */
+}
+
+.ingreso-card.azul {
+    background: #dae3ff;     /* muy suave */
+}
+
+.ingreso-card.verde {
+    background: #cefbe8;
+}
+
+.ingreso-card.morado {
+    background: #d2d5f7;
+}
+
+
+.top-info {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 15px;
+  color: #6d6d6d;
+   line-height: 20px;
+}
+
+/* Íconos de categorías */
+.icono-card {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+
+    &.amarillo {
+        background: #f2cb6f;
+        color: #c89b1f;
+    }
+
+    &.azul {
+        background: #849cf972;
+        color: #4169e1;
+    }
+
+    &.verde {
+        background: #47c0955b;
+        color: #0aa56e;
+    }
+
+    &.morado {
+        background: #696dba67;
+        color: #5a5ac4;
+    }
+}
+
+/* ============================================================
+   ==================   CATEGORIA =======================
+   ============================================================ */
+.contenedor-categorias {
+    background: #fff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ececec;
+
+    h3 {
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+    }
+}
+
+/* ===== ITEM ===== */
+.categoria-item {
+    padding: 12px 2px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    transition: 0.2s ease;
+
+    &:hover {
+        background: #fafafa;
+    }
+
+    .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+
+        .name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .amount {
+            font-size: 15px;
+            font-weight: 700;
             color: $color-gastos;
         }
     }
-}
 
-/* ============================================================
-   ==================   BARRAS PROGRESO  =======================
-   ============================================================ */
-.barra {
-    width: 100%;
-    height: 8px;
-    background: #eef0f6;
-    border-radius: 10px;
-    overflow: hidden;
+    /* ==== BARRA DE PROGRESO ==== */
+    .barra {
+        width: 100%;
+        height: 8px;
+        background: #dee3ee;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 6px;
 
-    .progreso {
-        height: 100%;
-        transition: width 0.3s;
+        .progreso {
+            height: 100%;
+            background: $color-gastos;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
     }
-}
 
-.ingresos .progreso {
-    background: $color-ingresos;
-}
-
-.gastos .progreso {
-    background: $color-gastos;
-}
-
-/* ======================================
-   CATEGORÍAS - PROGRESO DINÁMICO
-====================================== */
-.contenedor-card.gastos .progreso {
-    background: $color-gastos !important;
-}
-
-.contenedor-card.ingresos .progreso {
-    background: $color-ingresos !important;
-}
-
-/* ============================================================
-   ==================   CONTENEDOR GENERAL =====================
-   ============================================================ */
-.contenedor-card {
-    background: white;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px #0000000d;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 18px;
-
-    h3 {
-        margin: 0 0 10px 0;
-        font-size: 18px;
+    /* ===== Porcentaje ===== */
+    .percent {
+        font-size: 12px;
+        color: #777;
+        font-weight: 500;
+        text-align: right;
+        display: block;
     }
 }
 
 /* ============================================================
    ==================   DEPARTAMENTOS ==========================
    ============================================================ */
+
 .card-seccion {
     background: #fff;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px #0000000d;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 
     h2 {
-        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #333;
     }
 }
 
 .departamento {
+    background: #f6f8fc;
+    padding: 22px 22px 18px;
+    border-radius: 16px;
+    border: 1px solid #e0e5f1;
     margin-bottom: 20px;
-    padding: 18px;
-    background: white;
-    border-radius: 12px;
-    border: 1px solid $gris-borde;
+    transition: 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 
-    .info {
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .top-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .nombre {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1e1e1e;
+        }
+
+        .monto-info {
+            text-align: right;
+
+            .monto {
+                font-size: 18px;
+                font-weight: 700;
+                color: $color-ingresos;
+            }
+
+            small {
+                display: block;
+                font-size: 12px;
+                margin-top: 4px;
+                color: #7d7d7d;
+            }
+        }
     }
 
-    .nombre {
-        font-weight: 600;
+    /* BARRA */
+    .barra {
+        width: 100%;
+        height: 8px;
+        border-radius: 20px;
+        background: #e3e7f1;
+        margin: 14px 0 18px;
+        overflow: hidden;
+
+        .progreso {
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
     }
 
-    .monto {
-        font-weight: 700;
-        color: $color-ingresos;
-    }
+    /* Tres columnas como la imagen */
+    .detalle-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 5px;
+        gap: 10px;
 
-    .barra .progreso {
-        background: $color-ingresos;
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .valor {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+    }
+}
+
+/* Colores dinámicos */
+.ingresos {
+    .departamento {
+        .monto-info .monto {
+            color: $color-ingresos;
+        }
+        .progreso {
+            background: $color-ingresos;
+        }
     }
 }
 
 .gastos {
-    .departamento .monto {
-        color: $color-gastos;
-    }
-
-    .departamento .barra .progreso {
-        background: $color-gastos;
+    .departamento {
+        .monto-info .monto {
+            color: $color-gastos;
+        }
+        .progreso {
+            background: $color-gastos;
+        }
     }
 }
 
@@ -275,20 +472,23 @@ $gris-fondo: #f8f9fc;
    ==================   TRANSACCIONES ==========================
    ============================================================ */
 .transaccion {
-     display: flex;
+    display: flex;
     align-items: center;
     gap: 14px;
     padding: 14px 12px;
     border: 1px solid #dadada;
-    border-radius: 14px;   // ← borde redondeado
-    margin-bottom: 12px;   // separación entre tarjetas
+    border-radius: 14px; // ← borde redondeado
+    margin-bottom: 12px; // separación entre tarjetas
     background: #fff;
-    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 
     &:hover {
         background: #f9f9f9;
         transform: translateX(3px);
-        box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
     }
 
     /* Ícono redondito */
