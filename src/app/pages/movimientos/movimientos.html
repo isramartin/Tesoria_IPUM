@@ -6,11 +6,60 @@
       <p class="subtitulo">Control de ingresos y gastos de la iglesia</p>
     </div>
 
-    <button class="btn-primary">+ Nueva Transacción</button>
+    <button class="btn-new" (click)="abrirModal()">
+      <span class="icon">+</span>
+      Nueva Transacción
+    </button>
   </div>
 
+  <div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Registrar Transacción</h2>
+      <button class="close-btn" (click)="cerrarModal()">×</button>
+    </div>
+
+    <p class="modal-subtitle">Ingresa los datos financieros de la transacción</p>
+
+    <div class="modal-body">
+      
+      <label>Departamento</label>
+      <select>
+        <option>Selecciona un departamento</option>
+      </select>
+
+      <label>Tipo de Movimiento</label>
+      <select>
+        <option>Ingreso</option>
+        <option>Gasto</option>
+      </select>
+
+      <label>Categoría</label>
+      <select>
+        <option>Selecciona una categoría</option>
+      </select>
+
+      <label>Monto ($)</label>
+      <input type="number" placeholder="0.00" />
+
+      <label>Fecha</label>
+      <input type="date" />
+
+      <label>Descripción</label>
+      <textarea placeholder="Detalles de la transacción..."></textarea>
+
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+      <button class="btn-guardar">Guardar Transacción</button>
+    </div>
+
+  </div>
+</div>
+
   <!-- FILTROS -->
-  <div class="filtros-card">
+  <!-- <div class="filtros-card">
     <div class="filtro-item">
       <label>Filtrar por fecha</label>
       <input type="date" />
@@ -32,12 +81,12 @@
         <option>2025</option>
       </select>
     </div>
-  </div>
+  </div> -->
 
   <!-- TABS INGRESOS / GASTOS -->
   <div class="tabs">
-    <button [class.active]="modo === 'ingresos'" (click)="modo = 'ingresos'">Ingresos</button>
-    <button [class.active]="modo === 'gastos'" (click)="modo = 'gastos'">Gastos</button>
+    <button [class.active]="modo === 'ingresos'" (click)="modo = 'ingresos'">↗ Ingresos</button>
+    <button [class.active]="modo === 'gastos'" (click)="modo = 'gastos'">↘ Gastos</button>
   </div>
 
   <!-- SUBTABS MESES -->
@@ -53,33 +102,30 @@
 
   <!-- TOTAL -->
 
-<div *ngIf="modo === 'gastos'" class="total-card gastos">
-  <div class="icono circulo">
-    <span>↘</span>
-  </div>
-
-  <div>
-    <p class="label-total">Total de Gastos – {{ mesSeleccionado }}</p>
-    <h2 class="monto-total">{{ totalSeleccionado | currency:'USD' }}</h2>
-  </div>
-</div>
-
-
-<!-- ⭐ VISTA INGRESOS (nuevo estilo tipo tarjetas pequeñas) -->
-<div *ngIf="modo === 'ingresos'" class="ingresos-grid">
-  <div class="ingreso-card" *ngFor="let item of listaIngresos" [ngClass]="item.color">
-
-    <div class="top-info">
-      <div class="icono-card" [ngClass]="item.color">
-        <span>{{ item.icono }}</span>
-      </div>
-
-      <p class="titulo">{{ item.nombre }}</p>
+  <div *ngIf="modo === 'gastos'" class="total-card gastos">
+    <div class="icono circulo">
+      <span>↘</span>
     </div>
 
-    <h3 class="monto">{{ item.monto | currency:'USD' }}</h3>
+    <div>
+      <p class="label-total">Total de Gastos – {{ mesSeleccionado }}</p>
+      <h2 class="monto-total">{{ totalSeleccionado | currency: 'USD' }}</h2>
+    </div>
   </div>
-</div>
+
+  <div *ngIf="modo === 'ingresos'" class="ingresos-grid">
+    <div class="ingreso-card" *ngFor="let item of listaIngresos" [ngClass]="item.color">
+      <div class="top-info">
+        <div class="icono-card" [ngClass]="item.color">
+          <span>{{ item.icono }}</span>
+        </div>
+
+        <p class="titulo">{{ item.nombre }}</p>
+      </div>
+
+      <h3 class="monto">{{ item.monto | currency: 'USD' }}</h3>
+    </div>
+  </div>
 
   <!-- CATEGORÍAS SOLO PARA GASTOS -->
   <div class="contenedor-categorias" *ngIf="modo === 'gastos'">

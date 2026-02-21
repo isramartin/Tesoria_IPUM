@@ -39,19 +39,186 @@ $gris-fondo: #f8f9fc;
     }
 }
 
-.btn-primary {
-    background: #5678ff;
+.btn-new {
+    background: #1d4ed8; /* Azul fuerte */
+    color: #fff;
     padding: 10px 18px;
-    color: white;
+    font-size: 14px;
+    font-weight: 600;
     border: none;
     border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.25s ease;
+}
 
-    &:hover {
-        background: #4b68e7;
-    }
+/* Ícono de + */
+.btn-new .icon {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+/* Hover */
+.btn-new:hover {
+    background: #1e40af; /* Azul más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Active (cuando se presiona) */
+.btn-new:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+/* Fondo desenfocado */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.64);
+//   backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Contenedor del modal */
+.modal {
+  width: 480px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.25s ease;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  margin-top: 4px;
+  margin-bottom: 18px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Botón cerrar */
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Cuerpo del form */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-body label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 94%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modal-body textarea {
+  resize: none; /* opcional, para que no se haga enorme */
+  min-height: 70px;
+}
+
+.modal-body select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+  border-color: #2563eb;
+}
+
+/* Footer */
+.modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Botones */
+.btn-cancelar {
+  padding: 8px 18px;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-guardar {
+  padding: 8px 18px;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-guardar:hover {
+  background: #1e40af;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================================
@@ -86,23 +253,41 @@ $gris-fondo: #f8f9fc;
    ==================   TABS    ================================
    ============================================================ */
 .tabs {
-    display: flex;
-    gap: 10px;
+    display: inline-flex;
+    background: #f1f3f7;
+    padding: 4px;
+    border-radius: 14px;
+    gap: 4px;
+    border: 1px solid #e2e4e8;
+    width: 35%;
 
     button {
         flex: 1;
-        padding: 10px;
-        border-radius: 10px;
+        padding: 8px 16px;
         border: none;
-        background: #ebeef7;
+        outline: none;
+        background: transparent;
+        border-radius: 12px;
         cursor: pointer;
+        font-size: 14px;
         font-weight: 600;
-        transition: 0.2s;
+        color: #6c6c6c;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: 0.25s ease;
     }
 
+    /* Estado activo */
     .active {
-        background: #757171d3;
-        color: white;
+        background: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        color: #1a1a1a;
+    }
+
+    /* Hover sobre los no activos */
+    button:not(.active):hover {
+        background: #e6e8ee;
     }
 }
 
@@ -110,22 +295,38 @@ $gris-fondo: #f8f9fc;
    ==================   TABS MESES    ==========================
    ============================================================ */
 .mes-tabs {
-    display: flex;
-    gap: 10px;
+    display: inline-flex;
+    background: #f1f3f7;
+    padding: 4px;
+    border-radius: 14px;
+    gap: 4px;
+    border: 1px solid #e2e4e8;
 
     button {
-        padding: 6px 15px;
-        border-radius: 8px;
+        flex: 1;
+        padding: 8px 16px;
         border: none;
-        background: #f1f1f1;
+        outline: none;
+        background: transparent;
+        border-radius: 12px;
         cursor: pointer;
         font-size: 14px;
-        transition: 0.2s;
+        font-weight: 600;
+        color: #6c6c6c;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: 0.25s ease;
     }
 
     .active {
-        background: #5678ff;
-        color: white;
+        background: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        color: #1a1a1a;
+    }
+
+    button:not(.active):hover {
+        background: #e6e8ee;
     }
 }
 
@@ -177,7 +378,7 @@ $gris-fondo: #f8f9fc;
 .ingreso-card {
     border-radius: 16px;
     padding: 20px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #d1cece;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
     transition: 0.25s ease;
 
@@ -205,11 +406,11 @@ $gris-fondo: #f8f9fc;
    =========================================== */
 
 .ingreso-card.amarillo {
-    background: #f4eacc;     /* más claro que el icono */
+    background: #f4eacc; /* más claro que el icono */
 }
 
 .ingreso-card.azul {
-    background: #dae3ff;     /* muy suave */
+    background: #dae3ff; /* muy suave */
 }
 
 .ingreso-card.verde {
@@ -220,18 +421,17 @@ $gris-fondo: #f8f9fc;
     background: #d2d5f7;
 }
 
-
 .top-info {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 10px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
 .titulo {
-  margin: 0;
-  font-size: 15px;
-  color: #6d6d6d;
-   line-height: 20px;
+    margin: 0;
+    font-size: 15px;
+    color: #6d6d6d;
+    line-height: 20px;
 }
 
 /* Íconos de categorías */
@@ -557,6 +757,7 @@ $gris-fondo: #f8f9fc;
     .icono {
         background-color: #e8c36477;
         color: $color-ingresos;
+        border-radius: 50%;
     }
 }
 
@@ -567,9 +768,15 @@ $gris-fondo: #f8f9fc;
     .icono {
         background-color: #e1666674;
         color: $color-gastos;
+        border-radius: 50%;
     }
 }
 
 .mt {
-    margin-top: 20px;
+    background: #ffffff;
+    background: #fff;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }

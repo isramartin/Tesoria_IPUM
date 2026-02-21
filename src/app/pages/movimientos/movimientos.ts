@@ -14,7 +14,20 @@ import { Component } from '@angular/core';
 })
 export class Movimientos {
   modo: 'ingresos' | 'gastos' = 'ingresos';
-  meses = ['Enero', 'Febrero', 'Marzo'];
+  meses = [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
+  ];
   mesSeleccionado = 'Enero';
 
   totalSeleccionado = 64400;
@@ -29,11 +42,11 @@ export class Movimientos {
   ];
 
   listaIngresos = [
-  { nombre: 'Talentos',          monto: 42000, icono: '🎁', color: 'amarillo' },
-  { nombre: 'Ofrendas',          monto: 25600, icono: '💙', color: 'azul' },
-  { nombre: 'Ingresos Externos', monto: 15800, icono: '📈', color: 'verde' },
-  { nombre: 'Total Ingresos',    monto: 83400, icono: '💲', color: 'morado' },
-];
+    { nombre: 'Talentos', monto: 42000, icono: '🎁', color: 'amarillo' },
+    { nombre: 'Ofrendas', monto: 25600, icono: '💙', color: 'azul' },
+    { nombre: 'Ingresos Externos', monto: 15800, icono: '📈', color: 'verde' },
+    { nombre: 'Total Ingresos', monto: 83400, icono: '💲', color: 'morado' },
+  ];
 
   transacciones = [
     {
@@ -74,8 +87,8 @@ export class Movimientos {
   //   this.gastos = this.transacciones.filter((t) => t.tipo === 'gasto');
   // }
   get transaccionesFiltradas() {
-  return this.transacciones.filter(t => t.tipo === this.modo.slice(0, -1));
-}
+    return this.transacciones.filter((t) => t.tipo === this.modo.slice(0, -1));
+  }
 
   departamentos = [
     { nombre: 'Jóvenes', monto: '$15,200', porcentaje: 28.3 },
@@ -83,4 +96,14 @@ export class Movimientos {
     { nombre: 'Caballeros', monto: '$18,200', porcentaje: 33.8 },
     { nombre: 'Niños', monto: '$8,900', porcentaje: 16.5 },
   ];
+
+  mostrarModal = false;
+
+  abrirModal() {
+    this.mostrarModal = true;
+  }
+
+  cerrarModal() {
+    this.mostrarModal = false;
+  }
 }
