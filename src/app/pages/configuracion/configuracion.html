@@ -1,1 +1,115 @@
-<p>configuracion works!</p>
+<div class="config-page">
+
+  <h1>Configuración</h1>
+  <p class="subtitulo">Gestiona las preferencias del sistema</p>
+
+  <!-- Información de la Empresa -->
+  <div class="card">
+    <h2>Información de la Empresa</h2>
+
+    <label>Nombre de la Empresa</label>
+    <input type="text" placeholder="Tesorería Pro S.A." />
+
+    <label>Email de Contacto</label>
+    <input type="email" placeholder="contacto@tesorierapro.com" />
+
+    <label>Teléfono</label>
+    <input type="text" placeholder="+34 900 123 456" />
+
+    <label>Dirección</label>
+    <input type="text" placeholder="Calle Principal 123, Madrid, España" />
+
+    <div class="btn-right">
+      <button class="btn-save">Guardar Cambios</button>
+    </div>
+  </div>
+
+  <!-- Notificaciones -->
+  <div class="card">
+    <h2>Notificaciones</h2>
+
+    <div class="row-setting">
+      <div>
+        <p class="titulo">Notificaciones por Email</p>
+        <span class="desc">Recibe actualizaciones importantes por correo</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row-setting">
+      <div>
+        <p class="titulo">Reportes Mensuales</p>
+        <span class="desc">Genera y envía reportes automáticamente cada mes</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row-setting">
+      <div>
+        <p class="titulo">Alertas de Transacciones</p>
+        <span class="desc">Notifica sobre transacciones importantes</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+  </div>
+
+  <!-- Configuración financiera -->
+  <div class="card">
+    <h2>Configuración Financiera</h2>
+
+    <label>Moneda</label>
+    <select>
+      <option>USD – Dólar</option>
+      <option>MXN – Peso Mexicano</option>
+      <option>EUR – Euro</option>
+    </select>
+
+    <label>Año Fiscal</label>
+    <select>
+      <option>Enero – Diciembre</option>
+      <option>Abril – Marzo</option>
+    </select>
+
+    <label>Umbral de Alertas</label>
+    <input type="number" placeholder="10000" />
+    <span class="desc">Recibe alertas cuando las transacciones superen este monto</span>
+
+    <div class="btn-right">
+      <button class="btn-save">Guardar Cambios</button>
+    </div>
+  </div>
+
+  <!-- Exportar datos -->
+  <div class="card">
+    <h2>Exportar Datos</h2>
+    <p class="desc">Descarga toda la información financiera en diferentes formatos</p>
+
+    <div class="export-actions">
+      <button class="btn-light">Exportar a Excel</button>
+      <button class="btn-light">Exportar a PDF</button>
+      <button class="btn-light">Exportar a CSV</button>
+    </div>
+  </div>
+
+  <!-- Zona de peligro -->
+  <div class="card danger">
+    <h2>Zona de Peligro</h2>
+    <p class="desc">Estas acciones son irreversibles. Procede con precaución.</p>
+
+    <div class="danger-actions">
+      <button class="btn-danger">Resetear Datos</button>
+      <button class="btn-danger-outline">Cerrar Año Fiscal</button>
+    </div>
+  </div>
+
+</div>
