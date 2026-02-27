@@ -1,1 +1,187 @@
-<p>jovenes works!</p>
+<div class="dashboard-container">
+  <div class="header">
+    <h1>Jóvenes</h1>
+    <p>Gestión financiera y reportes del departamento</p>
+
+    <button class="btn-primary" (click)="nuevaTransaccion()">
+      <span>+</span> Nueva Transacción
+    </button>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filters-card">
+    <div class="filter-item">
+      <label><i class="icon-calendar"></i> Filtrar por fecha:</label>
+    </div>
+
+    <div class="filter-item">
+      <label>Mes</label>
+      <select [(ngModel)]="mesSeleccionado">
+        <option *ngFor="let m of meses" [value]="m">{{ m }}</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label>Año</label>
+      <select [(ngModel)]="anioSeleccionado">
+        <option *ngFor="let a of anios" [value]="a">{{ a }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- === TABS DE DEPARTAMENTOS === -->
+<div class="departamentos-tabs">
+  <button 
+    *ngFor="let dep of departamentos"
+    (click)="cambiarDepartamento(dep.id)"
+    [class.active]="departamentoSeleccionado === dep.id"
+  >
+    <span class="icon">{{ dep.icon }}</span>
+    {{ dep.nombre }}
+  </button>
+</div>
+
+  <!-- TARJETAS -->
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-title">
+        <span>Balance Actual</span>
+        <i class="icon-arrow"></i>
+      </div>
+
+      <h2 class="value">$45.680,50</h2>
+
+      <div class="sub-info positive">+18.5% <span>vs mes anterior</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Total Transacciones</span>
+        <i class="icon-graph"></i>
+      </div>
+
+      <h2 class="value">156</h2>
+
+      <div class="sub-info">Último trimestre</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Promedio Mensual</span>
+        <i class="icon-up"></i>
+      </div>
+
+      <h2 class="value">$10.400,00</h2>
+
+      <div class="sub-info">Balance neto promedio</div>
+    </div>
+  </div>
+</div>
+
+<!-- === INFORMES MENSUALES === -->
+<div class="reports-section">
+  <h2 class="section-title">Informes Mensuales</h2>
+
+  <!-- Tabs de meses -->
+  <div class="month-tabs">
+    <button *ngFor="let m of meses" (click)="cambiarMes(m)" [class.active]="m === mesSeleccionado">
+      {{ m }}
+    </button>
+  </div>
+
+  <!-- === TARJETAS DE INGRESOS Y GASTOS === -->
+  <div class="monthly-cards-grid">
+    <div class="mini-card gradient-blue">
+      <i class="icon-wallet"></i>
+      <div>
+        <label>Talentos</label>
+        <h3>$12.500</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-green">
+      <i class="icon-diamond"></i>
+      <div>
+        <label>Ofrendas</label>
+        <h3>$8400</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-yellow">
+      <i class="icon-money"></i>
+      <div>
+        <label>Ingresos Externos</label>
+        <h3>$3500</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-purple">
+      <i class="icon-graph"></i>
+      <div>
+        <label>Total Ingresos</label>
+        <h3>$24.400</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-red">
+      <i class="icon-arrow-down"></i>
+      <div>
+        <label>Gastos</label>
+        <h3 class="negative">$15.200</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-gold">
+      <i class="icon-coin"></i>
+      <div>
+        <label>Balance Neto</label>
+        <h3>$9200</h3>
+      </div>
+    </div>
+
+    <div class="mini-card gradient-gray">
+      <i class="icon-list"></i>
+      <div>
+        <label>Transacciones</label>
+        <h3>10</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- === GRÁFICA === -->
+  <div class="chart-card">
+    <h3>Comparativa Ingresos vs Gastos - {{ mesSeleccionado }}</h3>
+
+    <!-- Aquí va tu gráfica AngularCharts / Chart.js -->
+    <canvas id="chartIngresosGastos"></canvas>
+  </div>
+
+  <!-- === TABLA DE TRANSACCIONES === -->
+   
+  <h3 class="table-title">Transacciones de {{ mesSeleccionado }}</h3>
+
+  <table class="transactions-table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Descripción</th>
+        <th>Tipo</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let t of transacciones">
+        <td>{{ t.fecha }}</td>
+        <td>{{ t.descripcion }}</td>
+        <td>
+          <span class="badge" [ngClass]="t.tipo">{{ t.tipo }}</span>
+        </td>
+        <td [class.negative]="t.tipo === 'Gasto'">
+          {{ t.monto | currency: 'USD' : 'symbol' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

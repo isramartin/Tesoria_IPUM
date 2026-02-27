@@ -1,0 +1,377 @@
+.dashboard-container {
+    padding: 20px 30px;
+    font-family: "Inter", sans-serif;
+    color: #1f1f1f;
+
+    .header {
+        margin-bottom: 25px;
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        p {
+            margin-top: 5px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            float: right;
+            margin-top: -40px;
+
+            background: #2751d8;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+
+            span {
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            &:hover {
+                background: #193ea8;
+            }
+        }
+    }
+}
+
+/* FILTROS */
+.filters-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    background: #fff;
+    padding: 15px 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 12px;
+    margin-bottom: 25px;
+
+    .filter-item {
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+        color: #555;
+
+        label {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        select {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    }
+}
+
+/* TARJETAS */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+
+    .card {
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #777;
+
+            i {
+                font-size: 18px;
+                opacity: 0.6;
+            }
+        }
+
+        .value {
+            margin: 15px 0 10px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .sub-info {
+            font-size: 12px;
+            color: #888;
+
+            &.positive {
+                color: #2db94d;
+                font-weight: 600;
+
+                span {
+                    color: #888;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+/* ICONOS PERSONALIZADOS (placeholder) */
+.icon-calendar::before {
+    content: "📅";
+}
+.icon-arrow::before {
+    content: "↗";
+}
+.icon-graph::before {
+    content: "📈";
+}
+.icon-up::before {
+    content: "⬆️";
+}
+
+/* =============== SECCIÓN INFORMES MENSUALES ================= */
+
+.reports-section {
+    margin-top: 40px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Título */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Tabs */
+.month-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+
+    button {
+        background: #f4f6fa;
+        border: 1px solid #d8dde6;
+        padding: 6px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.2s;
+
+        &.active {
+            background: #1a73e8;
+            color: white;
+            border-color: #1a73e8;
+        }
+
+        &:hover {
+            background: #e6ebf5;
+        }
+    }
+}
+
+/* GRID DE TARJETAS */
+.monthly-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.mini-card {
+    display: flex;
+    gap: 14px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #f7f8fc;
+    border: 1px solid #eceef4;
+    align-items: center;
+    transition: 0.2s;
+
+    label {
+        font-size: 13px;
+        color: #777;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .negative {
+        color: #d9534f;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* Gradientes suaves por categoría */
+.gradient-blue {
+    background: linear-gradient(to right, #e8edff, #f3f6ff);
+}
+.gradient-green {
+    background: linear-gradient(to right, #e4fff2, #effff9);
+}
+.gradient-yellow {
+    background: linear-gradient(to right, #fff7e3, #fffaf0);
+}
+.gradient-purple {
+    background: linear-gradient(to right, #ebe8ff, #f5f3ff);
+}
+.gradient-red {
+    background: linear-gradient(to right, #ffe8e8, #fff1f1);
+}
+.gradient-gold {
+    background: linear-gradient(to right, #fff2d8, #fff7e6);
+}
+.gradient-gray {
+    background: linear-gradient(to right, #eef0f5, #f7f8fc);
+}
+
+/* Tarjeta de gráfica */
+.chart-card {
+    margin-top: 25px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e8e9ee;
+}
+
+/* Tabla */
+/* === Título === */
+.table-title {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* === TABLA === */
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+
+    thead {
+        background: #f7f8fa;
+
+        th {
+            text-align: left;
+            padding: 14px 18px;
+            font-weight: 600;
+            color: #444;
+            border-bottom: 1px solid #e5e7eb;
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #ececec;
+
+        &:hover {
+            background: #fafafa;
+        }
+
+        td {
+            padding: 14px 18px;
+            color: #333;
+        }
+    }
+}
+
+/* === BADGES (Ingreso / Gasto) === */
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Estilo Ingreso */
+.Ingreso {
+    background: #c8a03c33;
+    color: #a07820;
+    border: 1px solid #d8b96a;
+}
+
+/* Estilo Gasto */
+.Gasto {
+    background: #e74c3c33;
+    color: #c62828;
+    border: 1px solid #e57373;
+}
+
+/* Monto negativo */
+.negative {
+    color: #d84040;
+    font-weight: 600;
+}
+
+.departamentos-tabs {
+    display: inline-flex;
+    background: #f1f3f7;
+    padding: 4px;
+    border-radius: 14px;
+    gap: 4px;
+    border: 1px solid #e2e4e8;
+}
+
+.departamentos-tabs button {
+    flex: 1;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6c6c6c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.25s ease;
+}
+
+.departamentos-tabs .icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.departamentos-tabs button:hover {
+    background: #e6e8ee;
+}
+
+.departamentos-tabs button.active {
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    color: #1a1a1a;
+}
